@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 1
+ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,7 +28,7 @@ ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 1
   25              		.thumb_func
   27              	main:
   28              	.LFB0:
-   1:Core/Src/main.c **** // #include "../Inc/init.h";
+   1:Core/Src/main.c **** //#include "../Inc/init.h";
    2:Core/Src/main.c **** #include <stdint.h>
    3:Core/Src/main.c **** int main(void)
    4:Core/Src/main.c **** {
@@ -38,17 +38,17 @@ ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 1
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
-   5:Core/Src/main.c ****     *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x02UL; // включение тактирования 
+   5:Core/Src/main.c ****     *(uint32_t *)(0x40023800UL + 0x30UL) |= 0x02UL + 0x04UL; // включение тактиров
   35              		.loc 1 5 5 view .LVU1
-  36 0000 104A     		ldr	r2, .L3
+  36 0000 1A4A     		ldr	r2, .L6
   37 0002 D2F83038 		ldr	r3, [r2, #2096]
   38              		.loc 1 5 42 is_stmt 0 view .LVU2
-  39 0006 43F00203 		orr	r3, r3, #2
+  39 0006 43F00603 		orr	r3, r3, #6
   40 000a C2F83038 		str	r3, [r2, #2096]
    6:Core/Src/main.c **** 
    7:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x00UL) |= 0x4000UL;   // настройка редима рабо
   41              		.loc 1 7 5 is_stmt 1 view .LVU3
-  42 000e 0E4B     		ldr	r3, .L3+4
+  42 000e 184B     		ldr	r3, .L6+4
   43 0010 D3F80024 		ldr	r2, [r3, #1024]
   44              		.loc 1 7 42 is_stmt 0 view .LVU4
   45 0014 42F48042 		orr	r2, r2, #16384
@@ -58,52 +58,80 @@ ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 1
   48 001c D3F80424 		ldr	r2, [r3, #1028]
   49              		.loc 1 8 42 is_stmt 0 view .LVU6
   50 0020 22F08002 		bic	r2, r2, #128
-ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 2
+ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s 			page 2
 
 
   51 0024 C3F80424 		str	r2, [r3, #1028]
-   9:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x08UL) &= 0x4000UL;     // настройка скорости р
+   9:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x08UL) |= 0x4000UL;     // настройка скорости р
   52              		.loc 1 9 5 is_stmt 1 view .LVU7
   53 0028 D3F80824 		ldr	r2, [r3, #1032]
   54              		.loc 1 9 42 is_stmt 0 view .LVU8
-  55 002c 02F48042 		and	r2, r2, #16384
+  55 002c 42F48042 		orr	r2, r2, #16384
   56 0030 C3F80824 		str	r2, [r3, #1032]
   10:Core/Src/main.c **** 
-  11:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x18UL) &= 0x800000UL; // предварительное откл�
+  11:Core/Src/main.c ****     *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000UL; // предварительное откл�
   57              		.loc 1 11 5 is_stmt 1 view .LVU9
   58 0034 D3F81824 		ldr	r2, [r3, #1048]
   59              		.loc 1 11 42 is_stmt 0 view .LVU10
-  60 0038 02F40002 		and	r2, r2, #8388608
+  60 0038 42F40002 		orr	r2, r2, #8388608
   61 003c C3F81824 		str	r2, [r3, #1048]
-  62              	.L2:
+  62 0040 06E0     		b	.L2
+  63              	.L5:
   12:Core/Src/main.c **** 
   13:Core/Src/main.c ****     while (1)
-  63              		.loc 1 13 5 is_stmt 1 view .LVU11
   14:Core/Src/main.c ****     {
-  15:Core/Src/main.c ****         //*(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80UL; //  включение светодиод
-  16:Core/Src/main.c ****     }
-  64              		.loc 1 16 5 view .LVU12
+  15:Core/Src/main.c ****         if (*(uint32_t *)(0x40020800 + 0x10UL) & 0x1000UL){
+  16:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80UL; //  включение светодио
+  64              		.loc 1 16 13 is_stmt 1 view .LVU11
+  65 0042 0B4A     		ldr	r2, .L6+4
+  66 0044 D2F81834 		ldr	r3, [r2, #1048]
+  67              		.loc 1 16 50 is_stmt 0 view .LVU12
+  68 0048 43F08003 		orr	r3, r3, #128
+  69 004c C2F81834 		str	r3, [r2, #1048]
+  70              	.L2:
   13:Core/Src/main.c ****     {
-  65              		.loc 1 13 11 view .LVU13
-  66 0040 FEE7     		b	.L2
-  67              	.L4:
-  68 0042 00BF     		.align	2
-  69              	.L3:
-  70 0044 00300240 		.word	1073885184
-  71 0048 00000240 		.word	1073872896
-  72              		.cfi_endproc
-  73              	.LFE0:
-  75              		.text
-  76              	.Letext0:
-  77              		.file 2 "C:/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
-  78              		.file 3 "C:/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
-ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s 			page 3
+  71              		.loc 1 13 5 is_stmt 1 view .LVU13
+  15:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80UL; //  включение светодио
+  72              		.loc 1 15 9 view .LVU14
+  15:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80UL; //  включение светодио
+  73              		.loc 1 15 13 is_stmt 0 view .LVU15
+  74 0050 074B     		ldr	r3, .L6+4
+  75 0052 D3F81038 		ldr	r3, [r3, #2064]
+  15:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x80UL; //  включение светодио
+  76              		.loc 1 15 12 view .LVU16
+  77 0056 13F4805F 		tst	r3, #4096
+  78 005a F2D1     		bne	.L5
+  17:Core/Src/main.c ****         }
+  18:Core/Src/main.c ****         else{
+  19:Core/Src/main.c ****             *(uint32_t *)(0x40020400UL + 0x18UL) |= 0x800000UL; //выключение светод
+  79              		.loc 1 19 13 is_stmt 1 view .LVU17
+  80 005c 044A     		ldr	r2, .L6+4
+  81 005e D2F81834 		ldr	r3, [r2, #1048]
+  82              		.loc 1 19 50 is_stmt 0 view .LVU18
+  83 0062 43F40003 		orr	r3, r3, #8388608
+  84 0066 C2F81834 		str	r3, [r2, #1048]
+  85 006a F1E7     		b	.L2
+  86              	.L7:
+  87              		.align	2
+  88              	.L6:
+  89 006c 00300240 		.word	1073885184
+  90 0070 00000240 		.word	1073872896
+  91              		.cfi_endproc
+  92              	.LFE0:
+ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s 			page 3
+
+
+  94              		.text
+  95              	.Letext0:
+  96              		.file 2 "C:/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_types.
+  97              		.file 3 "C:/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s:21     .text.main:00000000 $t
-C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s:27     .text.main:00000000 main
-C:\Users\Niki\AppData\Local\Temp\ccHPbsLe.s:70     .text.main:00000044 $d
+C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s:21     .text.main:00000000 $t
+C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s:27     .text.main:00000000 main
+C:\Users\Niki\AppData\Local\Temp\ccKdIwI1.s:89     .text.main:0000006c $d
 
 NO UNDEFINED SYMBOLS
