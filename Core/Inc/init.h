@@ -2,6 +2,21 @@
 #define INIT_H
 
 #include<stdint.h>
+// #include "../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
+// #include "../../CMSIS/Devices/STM32F4xx/Inc/stm32f429xx.h"
+#include "stm32f4xx.h"
+#include "stm32f429xx.h"
+
+void GPIO_Ini(void);
+void GPIOC10_Set_Output(void);
+void GPIOC10_Set_Input(void);
+void GPIOC11_Set_Output(void);
+void GPIOC11_Set_Input(void);
+void GPIOC12_Set_Output(void);
+void GPIOC12_Set_Input(void);
+void Green_LED_ON(void);
+void Blue_LED_ON(void);
+void Red_LED_ON(void);
 
 #define RCC_AHB1ENR                 *(uint32_t *)(0x40023800UL + 0x30UL)
 #define RCC_GPIOB_EN                0x02UL
@@ -21,10 +36,6 @@
 #define GPIO_PIN_SET_7              0x80UL
 #define GPIO_PP_PIN_7               0x80UL
 #define GPIO_PIN_PC12               0x1000UL
-
-
-  
-
 
 #define BIT_SET(REG, BIT)       ((REG) |= (BIT))
 #define BIT_READ(REG, BIT)      ((REG) & (BIT))
