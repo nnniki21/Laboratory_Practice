@@ -27,15 +27,25 @@ void Red_LED_ON(void);
 #define GPIOB_OTYPER                *(uint32_t *)(0x40020400UL + 0x04UL)
 #define GPIOB_OSPEEDR               *(uint32_t *)(0x40020400UL + 0x08UL)
 #define GPIOB_BSRR                  *(uint32_t *)(0x40020400UL + 0x18UL)
+#define GPIOB_PUPDR                 *(uint32_t *)(0x40020400UL + 0x0CUL)
 
 #define GPIOC_IDR                   *(uint32_t *)(0x40020800UL + 0x10UL)
 
 
-#define GPIO_OUTPUT_MEDIUM_PIN_7    0x4000U
-#define GPIO_OUTPUT_MODE_PIN_7      0x4000UL
-#define GPIO_PIN_RESET_7            0x800000UL
-#define GPIO_PIN_SET_7              0x80UL
-#define GPIO_PP_PIN_7               0x80UL
+#define GPIOB_OUTPUT_MEDIUM_PIN_7    0x4000UL
+#define GPIOB_OUTPUT_MODE_PIN_7      0x4000UL
+#define GPIOB_PIN_RESET_7            0x800000UL
+#define GPIOB_PIN_SET_7              0x80UL
+#define GPIOB_PP_PIN_7               0x80UL
+
+
+#define GPIOB_OUTPUT_MEDIUM_PIN_14    0x10000000UL
+#define GPIOB_OUTPUT_MODE_PIN_14      0x10000000UL
+#define GPIOB_PIN_RESET_14            0x40000000UL
+#define GPIOB_PIN_SET_14              0x4000UL
+#define GPIOB_PP_PIN_14               0x30000000UL
+#define GPIOB_OTYPE_PIN_14_PP         0x0000UL  
+
 #define GPIO_PIN_PC12               0x1000UL
 
 #define BIT_SET(REG, BIT)       ((REG) |= (BIT))
