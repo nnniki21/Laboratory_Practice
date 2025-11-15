@@ -7,13 +7,14 @@
 #include "stm32f4xx.h"
 #include "stm32f429xx.h"
 
-void GPIO_Ini(void);
+//void GPIO_Ini(void);
 void GPIOC10_Set_Output(void);
 void GPIOC10_Set_Input(void);
 void GPIOC11_Set_Output(void);
 void GPIOC11_Set_Input(void);
 void GPIOC12_Set_Output(void);
 void GPIOC12_Set_Input(void);
+void GPIOC13_Set_Input(void);
 void Green_LED_ON(void);
 void Blue_LED_ON(void);
 void Red_LED_ON(void);
@@ -42,3 +43,4 @@ void Red_LED_ON(void);
 #define BIT_CLEAR(REG, BIT)     ((REG) &= ~(BIT))
 
 #endif
+
